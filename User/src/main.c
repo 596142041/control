@@ -129,7 +129,7 @@ int  main(void)
         {  	
 			Open_SET(8, 1);	
             yaoshi=1;  //钥匙开关打开
-                if(Open_PC_FB_status == 1)// if(Open_PC_FB_status == 1)
+                if(Open_PC_FB_status == 1)
                 {    
 					EE=0;
 					Open_PC_FB_status_flag=1;
@@ -143,7 +143,6 @@ int  main(void)
                         {   
 
                             YK1_count_flag = 1;
-                            //Expose_SET(0, 1);  //MCU软件一档信号发出  更改
                             YK1_time_flag = 1000; //延时给高压同步盒子信号1s
                             BG_ZS_Flag = 0;  //修改
 
@@ -274,15 +273,15 @@ int  main(void)
             if(0 == Power_ST_FB_status)//未按下急停则打开电机电源48V
             {   bc=0;
                 Power_SET(3, 1);//急停开管关闭后,关断电源,电磁刹车也关闭了!!!!
-							  LED_SPI_Send1(0,0);
-							  can_send_buff[0]=0;
-							  can_send_buff[1]=0;
-							  can_send_buff[2]=0;
-							  can_send_buff[3]=0;
-							  can_send_buff[4]=0;
-							  can_send_buff[5]=0;
-							  can_send_buff[6]=0;
-							  can_send_buff[7]=0;
+				  LED_SPI_Send1(0,0);
+				  can_send_buff[0]=0;
+				  can_send_buff[1]=0;
+				  can_send_buff[2]=0;
+				  can_send_buff[3]=0;
+				  can_send_buff[4]=0;
+				  can_send_buff[5]=0;
+				  can_send_buff[6]=0;
+				  can_send_buff[7]=0;
                 CAN_TX(can_send_buff,0x51);	//发送标示位
 
             }
